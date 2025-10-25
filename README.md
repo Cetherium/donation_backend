@@ -313,22 +313,4 @@ Das System unterstützt folgende (fiktive) Organisationen:
 
 Dieses Projekt wurde im Rahmen eines W-Seminars zum Thema "Modellierung und Implementierung einer dezentralen Spendenplatform" entwickelt.
 
-### Lernziele
 
-- Verständnis von Blockchain-Technologie
-- Dezentrale Systeme und P2P-Netzwerke
-- Kryptographische Hash-Funktionen
-- Konsens-Algorithmen
-- RESTful API Design
-
-## 📝 Lizenz
-
-Dieses Projekt ist für Bildungszwecke erstellt und steht unter der MIT-Lizenz.
-
-## 🤝 Kontakt
-
-Bei Fragen zum Projekt wende dich an deinen W-Seminar-Betreuer.
-
----
-
-**Viel Erfolg bei deinem W-Seminar! 🚀**
