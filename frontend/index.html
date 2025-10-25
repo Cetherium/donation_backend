@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Spendenplattform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🔗 Blockchain Spendenplattform</h1>
+                <p class="subtitle">Dezentrale Spenden mit Blockchain-Technologie</p>
+            </div>
+            
+            <!-- Node Status -->
+            <div class="node-status">
+                <div class="node" id="node1-status">
+                    <div class="node-indicator offline"></div>
+                    <div class="node-info">
+                        <strong>Pi 5</strong>
+                        <span class="node-ip">192.168.178.95:5002</span>
+                        <span class="node-blocks">- Blöcke</span>
+                    </div>
+                </div>
+                <div class="node" id="node2-status">
+                    <div class="node-indicator offline"></div>
+                    <div class="node-info">
+                        <strong>Pi 4</strong>
+                        <span class="node-ip">192.168.178.99:5002</span>
+                        <span class="node-blocks">- Blöcke</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Donation Form -->
+            <section class="card donation-section">
+                <h2>💝 Neue Spende</h2>
+                <form id="donation-form">
+                    <div class="form-group">
+                        <label for="sender">Dein Name (optional)</label>
+                        <input 
+                            type="text" 
+                            id="sender" 
+                            placeholder="z.B. Max Mustermann oder anonym"
+                            value="Anonymer Spender"
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organisation *</label>
+                        <select id="organization" required>
+                            <option value="">-- Bitte wählen --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="amount">Betrag (€) *</label>
+                        <input 
+                            type="number" 
+                            id="amount" 
+                            min="1" 
+                            step="1" 
+                            placeholder="z.B. 50"
+                            required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" id="donate-btn">
+                        <span>💰 Spenden</span>
+                    </button>
+                </form>
+
+                <div id="donation-message" class="message"></div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="card stats-section">
+                <div class="stats-header">
+                    <h2>📊 Statistiken</h2>
+                    <button class="btn btn-secondary btn-small" id="refresh-stats">
+                        🔄 Aktualisieren
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-donations">0 €</div>
+                        <div class="stat-label">Gesamtspenden</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="total-blocks">0</div>
+                        <div class="stat-label">Blöcke</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="pending-transactions">0</div>
+                        <div class="stat-label">Ausstehend</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="chain-valid">
+                            <span class="status-badge">-</span>
+                        </div>
+                        <div class="stat-label">Chain Status</div>
+                    </div>
+                </div>
+
+                <!-- Donations per Organization -->
+                <div class="org-stats" id="org-stats">
+                    <h3>Spenden pro Organisation</h3>
+                    <div class="org-list" id="org-list">
+                        <!-- Wird dynamisch gefüllt -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Transactions -->
+            <section class="card transactions-section">
+                <h2>📝 Letzte Transaktionen</h2>
+                <div id="recent-transactions">
+                    <p class="loading">Lade Transaktionen...</p>
+                </div>
+            </section>
+
+            <!-- Blockchain View -->
+            <section class="card blockchain-section">
+                <div class="blockchain-header">
+                    <h2>⛓️ Blockchain</h2>
+                    <button class="btn btn-secondary btn-small" id="refresh-chain">
+                        🔄 Aktualisieren
+                    </button>
+                </div>
+                <div id="blockchain-view">
+                    <p class="loading">Lade Blockchain...</p>
+                </div>
+            </section>
+
+            <!-- Admin Controls -->
+            <section class="card admin-section">
+                <h2>⚙️ Admin-Funktionen</h2>
+                <div class="admin-controls">
+                    <button class="btn btn-secondary" id="sync-nodes">
+                        🔄 Nodes synchronisieren
+                    </button>
+                    <button class="btn btn-secondary" id="manual-mine">
+                        ⛏️ Manuell minen
+                    </button>
+                    <button class="btn btn-secondary" id="run-consensus">
+                        🤝 Konsens starten
+                    </button>
+                </div>
+                <div id="admin-message" class="message"></div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>W-Seminararbeit: Modellierung und Implementierung einer dezentralen Spendenplattform</p>
+            <p class="footer-tech">Python · Flask · Blockchain · Proof-of-Work · P2P</p>
+        </footer>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

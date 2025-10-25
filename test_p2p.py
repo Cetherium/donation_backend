@@ -8,8 +8,8 @@ import requests
 import json
 import time
 
-NODE1 = "http://localhost:5001"
-NODE2 = "http://localhost:5002"
+NODE1 = "http://192.168.178.95:5002"
+NODE2 = "http://192.168.178.99:5002"
 
 def print_header(text):
     print("\n" + "="*60)
@@ -21,8 +21,8 @@ def wait_for_nodes():
     print("⏳ Warte auf beide Nodes...")
     for i in range(10):
         try:
-            r1 = requests.get(f"{NODE1}/health", timeout=1)
-            r2 = requests.get(f"{NODE2}/health", timeout=1)
+            r1 = requests.get(f"{NODE1}/health", timeout=5)
+            r2 = requests.get(f"{NODE2}/health", timeout=5)
             if r1.status_code == 200 and r2.status_code == 200:
                 print("✅ Beide Nodes sind bereit!")
                 return True
